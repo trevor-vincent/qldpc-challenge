@@ -7,6 +7,11 @@ weight is r wt(v). So each partition bounds the distance on a problem a factor
 r smaller, with no assumption about the family: an automorphism is what makes a
 partition fruitful, never what makes the bound valid.
 
+A folded logical can lift to a STABILIZER of the big code, so the lift is kept
+only when it both commutes and escapes the rowspace of the same-type checks.
+Checking commutation alone reported weight-4 logicals on Kitaev's [[36,2,6]]
+and [[64,2,8]], where the lift was a plaquette.
+
 The fold does not do the searching. It reduces the code and hands the small one
 to the trusted distance routine, because the interesting folded logicals are not
 sparse in any orbit basis: [[420,20,50]] is refuted by an x^35-invariant logical
@@ -25,9 +30,9 @@ each reported 80.
 import json, os, sys
 import numpy as np
 
-MAXFOLD = 160          # folded columns; the search below is cheap at this size
-TRIALS = 200_000
-SEEDS = (5, 131, 211)
+MAXFOLD = int(os.environ.get("FOLD_MAXFOLD", 160))
+TRIALS = int(os.environ.get("FOLD_TRIALS", 200_000))
+SEEDS = tuple(int(x) for x in os.environ.get("FOLD_SEEDS", "5,131,211").split(","))
 
 
 def masks_for(n, b, t):
@@ -51,6 +56,30 @@ def partitions(n):
             yield b, t
 
 
+def rref_rows(H):
+    """Bit-packed echelon form of H's rowspace, for membership tests."""
+    piv = {}
+    for row in H:
+        r = int("".join("1" if x else "0" for x in row[::-1]), 2) if row.any() else 0
+        while r:
+            b = r.bit_length() - 1
+            if b not in piv:
+                piv[b] = r
+                break
+            r ^= piv[b]
+    return piv
+
+
+def in_span(piv, u):
+    v = int("".join("1" if x else "0" for x in u[::-1]), 2) if u.any() else 0
+    while v:
+        b = v.bit_length() - 1
+        if b not in piv:
+            return False
+        v ^= piv[b]
+    return True
+
+
 def fold(H, orbits):
     """Column-sum H onto orbits over GF(2)."""
     F = np.zeros((H.shape[0], len(orbits)), dtype=np.int8)
@@ -63,6 +92,7 @@ def bound(n, HX, HZ, repo=None):
     repo = repo or os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     sys.path.insert(0, os.path.join(repo, "verify"))
     import gf2_fast
+    spanX, spanZ = rref_rows(HX), rref_rows(HZ)
     best = None
     for b, t in partitions(n):
         orbits, r = masks_for(n, b, t)
@@ -83,8 +113,15 @@ def bound(n, HX, HZ, repo=None):
                 u = np.zeros(n, dtype=np.int8)
                 for j in sup:
                     u[orbits[j]] = 1
+                # A logical of the FOLDED code can lift to a stabilizer of the
+                # big one. Checking only that it commutes reported weight-4
+                # "logicals" on Kitaev's [[36,2,6]] and [[64,2,8]], where the
+                # lift was a plaquette. Both conditions are required.
                 chk = HZ if side == "X" else HX
                 if (chk @ u % 2).any():
+                    continue
+                stab = HX if side == "X" else HZ
+                if in_span(spanX if side == "X" else spanZ, u):
                     continue
                 best = (w, b, t, r, str(side),
                         [int(c) for c in np.nonzero(u)[0]])
