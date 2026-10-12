@@ -1,0 +1,60 @@
+{
+  "status": "stopped_at_chunk_boundary",
+  "source": "/Users/vincent.russo/Projects/genesis/wt/qldpc-publish-20261009/research/candidates/publication-20261009/ee0308-preserving-shortening/681-152-85.json",
+  "source_sha256": "ed37178eaf0e6e5d625fa081ce915e1f4b9b71832644bf4499542e3e2a93218f",
+  "parent_source": "/Users/vincent.russo/Projects/genesis/wt/qldpc-publish-20261009/research/candidates/publication-20261009/designed-ext00-expanded-fold-screen/ee00_0308/682-152-85-saved-operator.json",
+  "parent_source_sha256": "62c327ab058be4057271e1164d7938923de00ff1fd3cee7439790dade0b13833",
+  "candidate": "/Users/vincent.russo/Projects/genesis/wt/qldpc-publish-20261009/research/candidates/publication-20261009/ee0308-preserving-shortening/681-152-85.json",
+  "n": 681,
+  "k": 152,
+  "best_bound": 85,
+  "target_bound": 84,
+  "construction": "/Users/vincent.russo/Projects/genesis/wt/qldpc-publish-20261009/research/candidates/publication-20261009/ee0308-preserving-shortening/manifest.json",
+  "construction_sha256": "5c16e5c9f2311670fe53ef2300af660bdbfc4d5f7a877aa5ff746835920ab63c",
+  "seed": 279300200,
+  "parent_refutations": [],
+  "records": [
+    {
+      "raw": "/Users/vincent.russo/Projects/genesis/wt/qldpc-publish-20261009/research/candidates/publication-20261009/ee0308-shortening-screen/fold-witness.json",
+      "stage": "fold",
+      "trials": 100000,
+      "seed": 279300200,
+      "seconds": 0.09006958402460441,
+      "weights": {}
+    },
+    {
+      "raw": "/Users/vincent.russo/Projects/genesis/wt/qldpc-publish-20261009/research/candidates/publication-20261009/ee0308-shortening-screen/general0-witness.json",
+      "stage": "general0",
+      "trials": 10000,
+      "seed": 279300201,
+      "seconds": 11.04774291702779,
+      "weights": {
+        "Z": 86
+      }
+    },
+    {
+      "raw": "/Users/vincent.russo/Projects/genesis/wt/qldpc-publish-20261009/research/candidates/publication-20261009/ee0308-shortening-screen/general1-witness.json",
+      "stage": "general1",
+      "trials": 100000,
+      "seed": 279300202,
+      "seconds": 104.98908129200572,
+      "weights": {
+        "X": 88
+      }
+    },
+    {
+      "raw": "/Users/vincent.russo/Projects/genesis/wt/qldpc-publish-20261009/research/candidates/publication-20261009/ee0308-shortening-screen/general2-witness.json",
+      "stage": "general2",
+      "trials": 250000,
+      "seed": 279300203,
+      "seconds": 255.89735466695856,
+      "weights": {
+        "X": 85
+      }
+    }
+  ],
+  "native_sha256": "06fb004899bf6db79c2471b7b3655a2a33eb1cd414b843eea524c49149d6941d",
+  "script_sha256": "d54620cd3a42f13755e95b32573b518adc6c7ab87018427f7996161806209b0e",
+  "authority": "Unchanged logical validation and verifier only; no X/Z symmetry is assumed for the child.",
+  "stopped_before_stage": "general3"
+}

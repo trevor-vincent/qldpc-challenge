@@ -1,0 +1,23 @@
+{
+  "parent_path": "research/evidence/681-152-css-ee0308/parent.json",
+  "parent_sha256": "62c327ab058be4057271e1164d7938923de00ff1fd3cee7439790dade0b13833",
+  "submitted_code_sha256": "e8fb18159f1fefd13e50442540fa55a4cebbbeaa8730363fc1495305c6939c56",
+  "measurement_axis": "Z",
+  "deleted_parent_qubit": 0,
+  "source_screen_raw_sha256": {
+    "fold-witness.json": "08627e3e180f647d88d38d977b692d7b00d4eadc658bc0853df6e72d6e3ad9e8",
+    "general0-witness.json": "b8d0b96a55b6b2d39284615cabd9023a6f8ac672ed7f17c606f5fee37d5e266e",
+    "general1-witness.json": "3a7816dbffe9172af5780d5f952c6daf05607d993144f946e99c2312ebe36a10",
+    "general2-witness.json": "f478866f42456174de0151ad053aa9e3977d69323472fbf969321da52dcb9031"
+  },
+  "independent_local_raw_sha256": {
+    "local-100000-raw.json": "a46bd2620cd88cc8ead76935aa6c0ce1ff4aa6bdb30de6cf26118fef62a0b2c6",
+    "local-1000000-raw.json": "fe035f15000ac3817431aa9e7f9312ec482f8df211de26f7586ac86df148782f"
+  },
+  "gate_seed": 310308080,
+  "gate_verdict_sha256": "4845687d3c81f3764023adfa8dc864fc5b33298dd4c51e7dc056d77e61e09be5",
+  "gate_base": "c76dbbc3",
+  "latest_gate_base": "bb2fd482",
+  "latest_gate_seed": 310308180,
+  "latest_gate_verdict_sha256": "dd53517df5a349156380b54162dab5c22a48aaafe0cf485eccc9d075cb4b82e7"
+}
