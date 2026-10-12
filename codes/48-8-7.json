@@ -602,7 +602,8 @@
     "date": "2026-10-12",
     "notes": "Parameters and construction taken from the public database of arXiv:2610.13880v1. Distance is an upper bound certified by the witnesses attached here. Parameters and blocks taken from the public code database of arXiv:2610.13880v1 (Lee, 'Bicycle Race'), github.com/gideonlsx/bicycle-race @ aed705a, CC BY 4.0; rebuilt here with the repo's own group data. Distance is an upper bound certified by the attached witnesses, not the paper's exact distance.",
     "origin": "baseline",
-    "novelty": "known_parameters"
+    "novelty": "known_parameters",
+    "model": "Mimo-V2.6-Flash"
   },
   "family": "2bga-nonabelian"
 }
