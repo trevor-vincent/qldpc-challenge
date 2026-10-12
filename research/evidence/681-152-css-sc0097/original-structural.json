@@ -1,0 +1,286 @@
+{
+  "name": "[[681,152,84]] single-qubit CSS shortening",
+  "checks": [
+    {
+      "check": "schema_valid",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "qubit_indices_in_range",
+      "ok": true,
+      "detail": "max index 680, n=681"
+    },
+    {
+      "check": "no_repeated_qubits_in_a_check",
+      "ok": true,
+      "detail": "rows with repeats: []"
+    },
+    {
+      "check": "tanner_connected",
+      "ok": true,
+      "detail": "Tanner graph has 1 connected component(s)"
+    },
+    {
+      "check": "stabilizer_group_connected",
+      "ok": true,
+      "detail": "stabilizer group splits into 1 independent block(s) on disjoint qubit sets (sizes 681)"
+    },
+    {
+      "check": "css_commutation",
+      "ok": true,
+      "detail": "H_X H_Z^T = 0 over GF(2)"
+    },
+    {
+      "check": "k_matches_claim",
+      "ok": true,
+      "detail": "computed k=152, claimed 152"
+    },
+    {
+      "check": "k_at_least_1",
+      "ok": true,
+      "detail": "computed k=152; a submission must encode >= 1 logical qubit"
+    },
+    {
+      "check": "check_weight_is_ldpc",
+      "ok": true,
+      "detail": "max check weight 32"
+    },
+    {
+      "check": "model_version_specified",
+      "ok": true,
+      "detail": "GPT-6"
+    },
+    {
+      "check": "family_in_vocabulary",
+      "ok": true,
+      "detail": "'punctured-css' is a new family tag, accepted but not yet in the vocabulary; please open an issue so the tracks and the site labels can follow"
+    },
+    {
+      "check": "distance_X_witness",
+      "ok": true,
+      "detail": "weight=84 (claim 84), in_ker=True, nontrivial=True"
+    },
+    {
+      "check": "distance_Z_witness",
+      "ok": true,
+      "detail": "weight=84 (claim 84), in_ker=True, nontrivial=True"
+    },
+    {
+      "check": "d_matches_min_side",
+      "ok": true,
+      "detail": "min earned side = 84, claimed d = 84"
+    },
+    {
+      "check": "local_hadamard_css_images",
+      "ok": true,
+      "detail": "1 local-Hadamard image(s) of this CSS code filed with it, so a Hadamard-relabelled copy collides with it whichever code_type it is submitted under"
+    }
+  ],
+  "ok": true,
+  "computed": {
+    "code_type": "CSS",
+    "n": 681,
+    "rank_HX": 264,
+    "rank_HZ": 265,
+    "k": 152,
+    "max_check_weight": 32,
+    "weight_class": "weight-9plus",
+    "diagnostics": {
+      "tanner_girth": {
+        "X": 4,
+        "Z": 4
+      },
+      "weight_profile": {
+        "X": {
+          "row": {
+            "min": 32,
+            "max": 32,
+            "mean": 32.0
+          },
+          "column": {
+            "min": 12,
+            "max": 16,
+            "mean": 15.272
+          }
+        },
+        "Z": {
+          "row": {
+            "min": 31,
+            "max": 32,
+            "mean": 31.953
+          },
+          "column": {
+            "min": 16,
+            "max": 16,
+            "mean": 16.0
+          }
+        }
+      },
+      "trapping_sets": {
+        "max_size": 3,
+        "candidate_cap": 2000000,
+        "X": {
+          "complete_through_size": 2,
+          "counts": [
+            [
+              1,
+              12,
+              2
+            ],
+            [
+              1,
+              13,
+              16
+            ],
+            [
+              1,
+              14,
+              96
+            ],
+            [
+              1,
+              15,
+              248
+            ],
+            [
+              1,
+              16,
+              319
+            ],
+            [
+              2,
+              19,
+              2
+            ],
+            [
+              2,
+              20,
+              8
+            ],
+            [
+              2,
+              21,
+              54
+            ],
+            [
+              2,
+              22,
+              245
+            ],
+            [
+              2,
+              23,
+              785
+            ],
+            [
+              2,
+              24,
+              2123
+            ],
+            [
+              2,
+              25,
+              5548
+            ],
+            [
+              2,
+              26,
+              12125
+            ],
+            [
+              2,
+              27,
+              21447
+            ],
+            [
+              2,
+              28,
+              29849
+            ],
+            [
+              2,
+              29,
+              28992
+            ],
+            [
+              2,
+              30,
+              18794
+            ]
+          ]
+        },
+        "Z": {
+          "complete_through_size": 2,
+          "counts": [
+            [
+              1,
+              16,
+              681
+            ],
+            [
+              2,
+              24,
+              680
+            ],
+            [
+              2,
+              26,
+              4423
+            ],
+            [
+              2,
+              28,
+              33996
+            ],
+            [
+              2,
+              30,
+              84659
+            ]
+          ]
+        }
+      },
+      "row_space_intersection_dimension": 0
+    },
+    "locality_class": "unrestricted",
+    "flags": {
+      "css": true,
+      "stabilizer": false,
+      "locality_class": "unrestricted",
+      "modular": false
+    }
+  },
+  "earned_distance": {
+    "X": {
+      "value": 84,
+      "tier": "upper_bound"
+    },
+    "Z": {
+      "value": 84,
+      "tier": "upper_bound"
+    },
+    "d": {
+      "value": 84,
+      "tier": "upper_bound"
+    }
+  },
+  "signature": {
+    "hash": "eb78a17eeed44f89",
+    "n": 681,
+    "k": 152,
+    "d": 84
+  },
+  "fingerprint": "784e238474229402",
+  "css_equivalent": {
+    "of": "css",
+    "images": 1,
+    "enumeration_capped": false,
+    "fingerprints": [
+      "edf023133023861a"
+    ],
+    "signatures": [
+      "eb78a17eeed44f89"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "method": "CSS shortening of the retained cyclic generalized-bicycle parent; measure Z on parent qubit 5, retain X rows avoiding it, delete column 5 from both checks",
+  "parent_path": "research/evidence/681-152-css-sc0097/parent.json",
+  "parent_sha256": "3e2be962e85c2f9fcf95d4fa782cb75220aad1de73bad6ebf873115f65b79338",
+  "source_child_sha256": "ac00398d7edfed3e8512d9925440dbb761d3faee96367f47b219ccc268edf6b2",
+  "submitted_code_sha256": "510bc8306d1e14d8b1795f24593bb3fbf3b5529507d3f937f8facb22cb2368e1",
+  "deleted_parent_qubit": 5,
+  "measurement_axis": "Z",
+  "source_screen_raw_sha256": {
+    "fold-witness.json": "d9255d8bb547d3b2a5f50add73e803ece326c8dcbb6649d2191f8dbdea986ac2",
+    "general0-witness.json": "7250df073db4c53140705ad52a96bcc2046ee6127dfe4adb8734aeca5fe57866",
+    "general1-witness.json": "b1df1a931b16ff75027f3c34d9d048d554fdf9c653e339e56c63feb9abf1ee58",
+    "general2-witness.json": "b33f07572e4152f23efef33ebad7786e3a9e6ec88a553cf71e9fa1e4bd776666"
+  },
+  "independent_local_raw_sha256": {
+    "local-100000-raw.json": "ab16c1739fc913de24d87cd9b94ab37841092dcfac04a1319332dfa23e0eb6b3",
+    "local-1000000-raw.json": "a1e05e4555d20a2a26e2c23840a67c791a5773717ce53d967e24f82a2ebb217a"
+  },
+  "gate_seed": 272540971,
+  "board_commit": "8c2db059",
+  "distance_certification": "witnessed upper bound only; exact distance not proven"
+}

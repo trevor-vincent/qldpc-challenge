@@ -1,0 +1,9 @@
+{
+  "stage": "fold",
+  "seed": 275700200,
+  "trials": 100000,
+  "witnesses": {},
+  "partitions": 0,
+  "method": "verify/heuristic_distance.py orbit_fold_min_logical",
+  "seconds": 0.06790191598702222
+}
