@@ -17,16 +17,23 @@ A run that does not reach every entry it was given is a failure too (issue
 #2896): the summary line and the JSON report say which entries went unchecked,
 so partial coverage is loud instead of ending in a runner timeout annotation.
 
-The board is walked largest n first, so when a budget binds the entries it
-drops are the small ones that carry exact certificates, not the frontier.
-``--shard I/K`` takes every K-th entry of that order starting at I, which puts
-an equal share of the large entries in each shard; the workflow runs K shards
-in parallel and a summary job over their reports.
+The sweep covers the board's cell records by default (``--scope records``):
+the entries undominated on (n, k, d, w) within their track cell, the same set
+``gate_changed.board_record_slugs`` gives the deep battery at PR time, 1,195
+of 1,956 entries on 2026-10-12. An over-claim on a dominated entry moves no
+record, so the weekly budget goes where a wrong distance changes the board;
+``--scope all`` sweeps every entry.
+
+The entries are walked largest n first, so when a budget binds the ones it
+drops are the small ones that carry exact certificates. ``--shard I/K`` takes
+every K-th entry of that order starting at I, which puts an equal share of
+the large entries in each shard; the workflow runs K shards in parallel and a
+summary job over their reports.
 
 Exit 0 only if nothing was refuted, nothing errored, and every entry was reached.
 
 Usage:
-  python verify/refute_board.py [--seed N] [--shard I/K] [--max-minutes M] [--report PATH]
+  python verify/refute_board.py [--seed N] [--scope records|all] [--shard I/K] [--max-minutes M] [--report PATH]
   python verify/refute_board.py --summarize REPORT... [--expect K]
 """
 import argparse
@@ -75,6 +82,23 @@ def shard_paths(paths, shard):
     if k < 1 or not 0 <= i < k:
         raise ValueError(f"bad shard {shard!r}: want 0 <= I < K")
     return list(paths)[i::k]
+
+
+def scope_paths(paths, scope, root=ROOT, records=None):
+    """``paths`` kept to the board's cell records for ``scope="records"``, all of them for ``"all"``.
+
+    ``records`` is the function that names the record slugs; the default is
+    ``gate_changed.board_record_slugs``, the implementation the PR gate uses.
+    """
+    if scope == "all":
+        return list(paths)
+    if scope != "records":
+        raise ValueError(f"bad scope {scope!r}: want records or all")
+    if records is None:
+        import gate_changed as G
+        records = G.board_record_slugs
+    keep = set(records(root))
+    return [p for p in paths if os.path.splitext(os.path.basename(p))[0] in keep]
 
 
 def file_seed(seed, rel):
@@ -159,8 +183,11 @@ def summarize(report_globs, expect=None, out=print):
     """Combine shard reports into one table; exit 0 only if every expected shard completed clean."""
     files = sorted({f for g in report_globs for f in glob.glob(g)})
     reps = [json.load(open(f)) for f in files]
-    lines = ["| shard | seed | checked | refuted | errored | unreached | minutes | status |",
-             "|---|---|---|---|---|---|---|---|"]
+    lines = []
+    if reps:
+        lines.append("scope: " + ", ".join(sorted({str(r.get("scope", "all")) for r in reps})) + "\n")
+    lines += ["| shard | seed | checked | refuted | errored | unreached | minutes | status |",
+              "|---|---|---|---|---|---|---|---|"]
     tot = {"total": 0, "checked": 0, "refuted": 0, "errored": 0, "unreached": 0}
     for rep in sorted(reps, key=lambda r: str(r.get("shard"))):
         status = "complete" if rep["complete"] else f"stopped by {rep['stopped_by']}"
@@ -208,6 +235,8 @@ def _install_stop_handlers():
 def main(argv):
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     ap.add_argument("--seed", type=int, help="run seed; only to reproduce a run (random otherwise)")
+    ap.add_argument("--scope", choices=("records", "all"), default="records",
+                    help="records: the board's cell records (default); all: every entry")
     ap.add_argument("--shard", help="I/K: take every K-th entry of the board (largest n first) starting at I")
     ap.add_argument("--max-minutes", type=float, help="open no new entry after this much wall clock; "
                     "the rest are reported unreached and the run fails")
@@ -222,14 +251,17 @@ def main(argv):
     seed = args.seed if args.seed is not None else secrets.randbelow(2**31)   # fresh each run
     shard_flag = f" --shard {args.shard}" if args.shard else ""
     print(f"weekly board refutation -- random seed = {seed}")
-    print(f"(reproduce this run with: python verify/refute_board.py --seed {seed}{shard_flag})\n")
-    paths = shard_paths(board_paths(args.root), args.shard)
-    if args.shard:
-        print(f"shard {args.shard}: {len(paths)} entries, largest n first\n")
+    print(f"(reproduce this run with: python verify/refute_board.py --seed {seed} --scope {args.scope}{shard_flag})\n")
+    board = board_paths(args.root)
+    scoped = scope_paths(board, args.scope, args.root)
+    paths = shard_paths(scoped, args.shard)
+    print(f"scope {args.scope}: {len(scoped)} of {len(board)} entries"
+          + (f"; shard {args.shard}: {len(paths)} entries" if args.shard else "") + ", largest n first\n")
     _install_stop_handlers()
     rep = refute_paths(paths, seed, max_seconds=None if args.max_minutes is None else 60 * args.max_minutes,
                        root=args.root)
     rep["shard"] = args.shard
+    rep["scope"] = args.scope
     if args.report:
         with open(args.report, "w") as f:
             json.dump(rep, f, indent=1)

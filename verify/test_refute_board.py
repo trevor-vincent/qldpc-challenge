@@ -74,6 +74,29 @@ def test_order_and_shards():
                 check(f"rejects shard {bad!r}", True)
 
 
+def test_scope_records_or_all():
+    with tempfile.TemporaryDirectory() as tmp:
+        paths = _board(tmp, ["672-20-32", "144-12-12", "10-2-3"])
+        seen = []
+
+        def records(root):
+            seen.append(root)
+            return {"672-20-32", "10-2-3"}
+
+        kept = RB.scope_paths(paths, "records", tmp, records=records)
+        check("records scope keeps the named slugs in board order",
+              [os.path.basename(p) for p in kept] == ["672-20-32.json", "10-2-3.json"] and seen == [tmp])
+        check("all scope keeps everything and asks nothing", RB.scope_paths(paths, "all", tmp, records=records) == paths
+              and seen == [tmp])
+        try:
+            RB.scope_paths(paths, "frontier", tmp, records=records)
+            check("rejects an unknown scope", False)
+        except ValueError:
+            check("rejects an unknown scope", True)
+        check("the default record function runs on the given root (these stubs have no checks, so no records)",
+              RB.scope_paths(paths, "records", tmp) == [])
+
+
 def test_file_seed_is_path_and_run_seed_only():
     s1 = RB.file_seed(7, "codes/10-2-3.json")
     check("same inputs, same seed", s1 == RB.file_seed(7, "codes/10-2-3.json"))
