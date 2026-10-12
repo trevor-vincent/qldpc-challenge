@@ -15,10 +15,10 @@ one `[[n,k,d]]`, so it could not follow the entry any further. What remains
 below is the construction method, the search budget, and the dead ends —
 all of which still hold for the live entry.
 
-Original submission note by @YangruiHu; reclassified to keep it readable after
-the entry's distance changed underneath it. The distance numbers in the
-evidence trail are the readings *at the time of writing* and are superseded by
-the entry itself.
+Original submission note by @yhu1996 (Yangrui Hu); reclassified to keep it
+readable after the entry's distance changed underneath it. The distance
+numbers in the evidence trail are the readings *at the time of writing* and are
+superseded by the entry itself.
 
 # Prime-index cyclic generalized-bicycle code on Z_241 — filed as [[482,146,42]], now [[482,146,33]]
 
