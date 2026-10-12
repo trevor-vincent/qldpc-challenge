@@ -1,0 +1,32 @@
+{
+  "method": "X-measurement CSS shortening of a cyclic generalized-bicycle parent: delete parent qubit 0 and retain Z rows avoiding it",
+  "parent_path": "research/evidence/681-172-css-ar8617/parent.json",
+  "parent_sha256": "df444c8a6082cbae78c738449cc9b5a32b1d5c7d559ce1f3cdaa815ff2e3e494",
+  "initial_child_sha256": "c5facd9700d85a08dbb8a35194f909a800350affba6f7b62329b05fbb2cffe39",
+  "submitted_code_sha256": "c0f84f999f7b8de0260080f6672bb54ecacfe4883cecb7d38dc0fbdbd37342d3",
+  "deleted_parent_qubit": 0,
+  "measurement_axis": "X",
+  "parent_ranks": {
+    "X": 255,
+    "Z": 255
+  },
+  "child_ranks": {
+    "X": 255,
+    "Z": 254
+  },
+  "source_screen_raw_sha256": {
+    "fold-witness.json": "54459b7ebc8f38a9fb9c11fe1a458e09c661e824e5f79a7df557f00b8739479d",
+    "general0-witness.json": "c31bc2b98007a0307b7e4c8a1ac2c7192b94d0180429cf889f0c18cf281fe15b",
+    "general1-witness.json": "1e10368968321c4d0992fce7a09c8eb436c8b97c12ed0bbd2233231334d79bb8",
+    "general2-witness.json": "c8e9dfb8560a93ff1727da793538755a6ec507a42d5ef6053c274ae968307a66",
+    "general3-witness.json": "2e97d40c7d5b28804c6f5352d7505bf2d70c5459d545a89dc9c418894e0cffb7"
+  },
+  "independent_local_raw_sha256": {
+    "local-100000-raw.json": "2f34232d3cc0af8b0a440c94be9b7d9357467efc60d8c0e8b9a67d04b13ffe33",
+    "local-1000000-raw.json": "db1680b8186acb5899cba0cc9200c4cabb07c1ef8a237af714ad5ecafe398078"
+  },
+  "gate_seed": 310617276,
+  "board_commit": "c76dbbc3",
+  "gpu_job_id": 59715638,
+  "distance_certification": "witnessed upper bound only; exact distance not proven"
+}

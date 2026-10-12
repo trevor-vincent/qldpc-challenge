@@ -1,0 +1,69 @@
+{
+  "status": "survived_screen_needs_deeper_search_and_full_gate",
+  "source": "/Users/vincent.russo/Projects/genesis/wt/qldpc-publish-20261009/research/candidates/publication-20261009/ar8617-single-qubit-shortening/681-172-79.json",
+  "source_sha256": "c5facd9700d85a08dbb8a35194f909a800350affba6f7b62329b05fbb2cffe39",
+  "parent_source": "/Users/vincent.russo/Projects/genesis/wt/qldpc-publish-20261009/research/candidates/publication-20261009/degree86-asymmetric-fold-screen/ar86_0017/682-172-80-saved-operator.json",
+  "parent_source_sha256": "df444c8a6082cbae78c738449cc9b5a32b1d5c7d559ce1f3cdaa815ff2e3e494",
+  "candidate": "/Users/vincent.russo/Projects/genesis/wt/qldpc-publish-20261009/research/candidates/publication-20261009/ar8617-single-qubit-shortening/681-172-79.json",
+  "n": 681,
+  "k": 172,
+  "best_bound": 79,
+  "target_bound": 79,
+  "construction": "/Users/vincent.russo/Projects/genesis/wt/qldpc-publish-20261009/research/candidates/publication-20261009/ar8617-single-qubit-shortening/manifest.json",
+  "construction_sha256": "99653a1649de7d2447462d1814caf76a1a7973a102374680d6b1d111933a0f01",
+  "seed": 273900000,
+  "parent_refutations": [],
+  "records": [
+    {
+      "raw": "/Users/vincent.russo/Projects/genesis/wt/qldpc-publish-20261009/research/candidates/publication-20261009/ar8617-shortening-screen/fold-witness.json",
+      "stage": "fold",
+      "trials": 100000,
+      "seed": 273900000,
+      "seconds": 0.06000920798396692,
+      "weights": {}
+    },
+    {
+      "raw": "/Users/vincent.russo/Projects/genesis/wt/qldpc-publish-20261009/research/candidates/publication-20261009/ar8617-shortening-screen/general0-witness.json",
+      "stage": "general0",
+      "trials": 10000,
+      "seed": 273900001,
+      "seconds": 8.105753917014226,
+      "weights": {
+        "X": 85
+      }
+    },
+    {
+      "raw": "/Users/vincent.russo/Projects/genesis/wt/qldpc-publish-20261009/research/candidates/publication-20261009/ar8617-shortening-screen/general1-witness.json",
+      "stage": "general1",
+      "trials": 100000,
+      "seed": 273900002,
+      "seconds": 84.29905391699867,
+      "weights": {
+        "Z": 82
+      }
+    },
+    {
+      "raw": "/Users/vincent.russo/Projects/genesis/wt/qldpc-publish-20261009/research/candidates/publication-20261009/ar8617-shortening-screen/general2-witness.json",
+      "stage": "general2",
+      "trials": 250000,
+      "seed": 273900003,
+      "seconds": 207.76853620802285,
+      "weights": {
+        "X": 82
+      }
+    },
+    {
+      "raw": "/Users/vincent.russo/Projects/genesis/wt/qldpc-publish-20261009/research/candidates/publication-20261009/ar8617-shortening-screen/general3-witness.json",
+      "stage": "general3",
+      "trials": 250000,
+      "seed": 273900004,
+      "seconds": 209.99607037502574,
+      "weights": {
+        "X": 82
+      }
+    }
+  ],
+  "native_sha256": "06fb004899bf6db79c2471b7b3655a2a33eb1cd414b843eea524c49149d6941d",
+  "script_sha256": "06ebcc218cec92282d294288c0f921248eb0b461496d9d1c1937cf379f49ca60",
+  "authority": "Unchanged logical validation and verifier only; no X/Z symmetry is assumed for the child."
+}
