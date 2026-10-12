@@ -1,9 +1,0 @@
-{
-  "status": "matched_saved_native_return",
-  "weight": 111,
-  "exact_weight_and_support_match": true,
-  "trials": 10000,
-  "seed": 304170010,
-  "role": "Reproduction, not independent depth. The native return was saved before an audit-wrapper import failure; it was recovered without another native call.",
-  "subsequent_validation": "native-witness-audit.json"
-}
