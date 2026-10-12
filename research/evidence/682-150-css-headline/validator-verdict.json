@@ -1,6 +1,6 @@
 {
   "candidate": {
-    "d": 83,
+    "d": 81,
     "family": "generalized-bicycle",
     "fingerprint": "a36b869d1ab8fd47",
     "k": 150,
@@ -32,9 +32,9 @@
       "literature_novelty": "unverified"
     },
     "refute": {
-      "detail": "no lighter logical in 8000 RIS trials (seed 834672226)",
+      "detail": "no lighter logical in 8000 RIS trials (seed 1349466562)",
       "refuted": false,
-      "seed": 834672226
+      "seed": 1349466562
     },
     "verify": {
       "failed_checks": [],
@@ -49,14 +49,14 @@
   ],
   "passed": true,
   "recorded": {
-    "candidate": "682-150-83-os75i0_0060-both.json",
-    "content_digest": "9c372dc6b942e9734404594e7d81501b2dc4f400f173c77450e7103168fa87f5",
-    "recorded_at": "2026-10-12T13:20:05.013970+00:00",
+    "candidate": "682-150-81-os75i0_0060-both.json",
+    "content_digest": "b7482c6c2dda9c57f27db9615e0daba9818d9c093f209963c4d2aaee412d218c",
+    "recorded_at": "2026-10-12T14:09:34.197496+00:00",
     "refutation_reused": false,
-    "run_id": "20261012-092005-vincentrusso-MacBook-Pro-24306"
+    "run_id": "20261012-100934-vincentrusso-MacBook-Pro-36131"
   },
   "validator": {
-    "seed": 834672226,
+    "seed": 1349466562,
     "source_sha256": "671f99a0bbe618c4331067a39651729e4a3174b6f97deb67d64e8bb7f775a8a3"
   }
 }
