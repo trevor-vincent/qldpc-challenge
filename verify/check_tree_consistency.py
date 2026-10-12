@@ -3,8 +3,10 @@
 
 Every artifact this board keeps is filed under the slug of the entry it
 belongs to: `codes/<slug>.json` is the entry, `notes/<slug>.md` explains how it
-was found, `certs/<slug>.json` certifies its distance, `circuits/<slug>/` holds
-its syndrome-extraction experiments. Remove or rename the entry and each of
+was found, `certs/<slug>.json` certifies its distance,
+`certs/heuristic/<slug>.json` records an uncertified one, `circuits/<slug>/`
+holds its syndrome-extraction experiments, and `receipts/ler/<slug>.json`
+records a post-merge rate replication. Remove or rename the entry and each of
 those becomes orphaned.
 
 That is not hypothetical. Until this check existed, nothing resolved an
@@ -38,13 +40,14 @@ What it deliberately does NOT check, and why:
   that direction would fail the board on a documented policy choice and
   pressure contributors to file filler. The pairing holds one way only: if a
   note exists, the entry it names must exist, because a note with no entry is
-  unreadable by construction.
+  unreadable by construction. The same one-way rule covers every other
+  location below: this sweep never asks an entry to justify its artifacts, it
+  asks an artifact to justify its entry.
 
-  It does not re-validate content either. Whether a note's [[n,k,d]] matches
-  its filename, whether its citations resolve, and whether a certificate
-  earns its level are `check_prose.py` and `check_certs.py`'s jobs; this
-  checker only answers "does the entry it names exist", which is the question
-  neither of them asks.
+  Content. Whether a note's [[n,k,d]] matches its filename, whether its
+  citations resolve, and whether a certificate earns its level are
+  `check_prose.py` and `check_certs.py`'s jobs; this checker only answers
+  "does the entry it names exist", which is the question neither of them asks.
 """
 import argparse
 import glob
@@ -54,64 +57,110 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # notes/README.md documents the contract and notes/TEMPLATE.md is the drafting
-# placeholder; neither claims to be a code's note.
-NOTE_DOCS = frozenset({"README.md", "TEMPLATE.md"})
+# placeholder; neither claims to be a code's note. Stems, to match the slugs
+# everything here is compared as.
+NOTE_DOCS = frozenset({"README", "TEMPLATE"})
+
+# Every per-entry artifact location, in report order. Each entry:
+#
+#   glob      paths under the tree root that belong to this location
+#   prefix    how the report spells the path of a match
+#   suffix    how the report spells the end of one ("/" for a directory)
+#   exclude   stems that live there without belonging to an entry
+#   label     what an orphan here means, printed with the count
+#
+# `directories: True` marks a location whose matches are directories rather
+# than files (circuits/<slug>/); every other location keeps only regular files.
+#
+# The globs are non-recursive and say exactly what each location is: only
+# `certs/*.json` is a certificate to `check_certs.py`, only `receipts/ler/*.json`
+# is a receipt to `site/`, and only a directory under `circuits/` is an
+# entry's circuit tree. `certs/proof_log_batch.jsonl` and `receipts/ler/README.md`
+# are therefore not artifacts of any code, and `certs/heuristic/` is a
+# per-entry location in its own right rather than part of the certs glob.
+KINDS = {
+    "notes": {
+        "glob": "notes/*.md",
+        "prefix": "notes/",
+        "suffix": ".md",
+        "exclude": NOTE_DOCS,
+        "label": "note with no codes/<slug>.json -- site/build.py resolves "
+                 "notes through existing entries, so this one renders nowhere",
+    },
+    "certs": {
+        "glob": "certs/*.json",
+        "prefix": "certs/",
+        "suffix": ".json",
+        "exclude": frozenset(),
+        "label": "certificate with no codes/<slug>.json -- it still validates, "
+                 "but it attests to a file that is not here",
+    },
+    "heuristic": {
+        "glob": "certs/heuristic/*.json",
+        "prefix": "certs/heuristic/",
+        "suffix": ".json",
+        "exclude": frozenset(),
+        "label": "heuristic certificate with no codes/<slug>.json -- "
+                 "check_certs.py cannot validate it, but this question "
+                 "needs no schema",
+    },
+    "receipts": {
+        "glob": "receipts/ler/*.json",
+        "prefix": "receipts/ler/",
+        "suffix": ".json",
+        "exclude": frozenset(),
+        "label": "LER receipt with no codes/<slug>.json -- site/ reads "
+                 "receipts through existing entries, so this one shows nowhere",
+    },
+    "circuits": {
+        "glob": "circuits/*",
+        "prefix": "circuits/",
+        "suffix": "/",
+        "directories": True,
+        "exclude": frozenset(),
+        "label": "circuits/<slug>/ with no codes/<slug>.json",
+    },
+}
+
+# A tree without these is not the tree this sweep describes; reading one
+# anyway would report a board that looks clean while skipping a location.
+REQUIRED = ("codes", "notes", "certs", "certs/heuristic", "receipts/ler",
+            "circuits")
 
 
 def code_slugs(root):
-    """Slugs of the board entries: the thing every other artifact points at."""
-    return {os.path.splitext(f)[0]
-            for f in os.listdir(os.path.join(root, "codes"))
-            if f.endswith(".json")}
+    """Slugs of the board entries: the thing every other artifact points at.
 
-
-def orphan_notes(root):
-    """Notes whose slug names no entry. A reader's dead end: they render nowhere."""
-    codes = code_slugs(root)
-    found = {os.path.splitext(os.path.basename(p))[0]
-             for p in glob.glob(os.path.join(root, "notes", "*.md"))
-             if os.path.basename(p) not in NOTE_DOCS}
-    return sorted(found - codes)
-
-
-def orphan_certificates(root):
-    """Certificates whose entry is gone: evidence bound to nothing.
-
-    Only `certs/*.json` — non-recursive on purpose, matching check_certs.py.
-    `certs/heuristic/` holds a different artifact with no schema and
-    `proof_log_batch.jsonl` is a batch log, neither one cert per entry.
+    Same idiom as the five other entry listings in this repository
+    (verify_all.py, gate_changed.py, refute_board.py, certify_all.py and
+    site/build.py): a `codes/*.json` glob is what counts as an entry, so a
+    future change to that definition stays greppable in one shape.
     """
-    codes = code_slugs(root)
-    found = {os.path.splitext(os.path.basename(p))[0]
-             for p in glob.glob(os.path.join(root, "certs", "*.json"))}
-    return sorted(found - codes)
+    return {os.path.splitext(os.path.basename(p))[0]
+            for p in glob.glob(os.path.join(root, "codes", "*.json"))}
 
 
-def orphan_circuits(root):
-    """Circuit directories whose entry is gone: experiments for a non-code."""
-    codes = code_slugs(root)
-    found = {os.path.basename(p) for p in
-             glob.glob(os.path.join(root, "circuits", "*"))
-             if os.path.isdir(p)}
-    return sorted(found - codes)
+def orphan_slugs(root, kind, codes):
+    """Slugs at one artifact location whose entry is gone from `codes`."""
+    paths = glob.glob(os.path.join(root, kind["glob"]))
+    if kind.get("directories"):
+        paths = [p for p in paths if os.path.isdir(p)]
+    else:
+        paths = [p for p in paths if os.path.isfile(p)]
+    slugs = {os.path.splitext(os.path.basename(p))[0] for p in paths}
+    return sorted(slugs - kind["exclude"] - codes)
 
 
 def scan(root=ROOT):
-    """Everything orphaned in this tree, keyed by artifact kind."""
-    return {
-        "notes": orphan_notes(root),
-        "certs": orphan_certificates(root),
-        "circuits": orphan_circuits(root),
-    }
+    """Everything orphaned in this tree, keyed by artifact kind.
 
-
-LABEL = {
-    "notes": "note with no codes/<slug>.json -- site/build.py resolves notes "
-             "through existing entries, so this one renders nowhere",
-    "certs": "certificate with no codes/<slug>.json -- it still validates, "
-             "but it attests to a file that is not here",
-    "circuits": "circuits/<slug>/ with no codes/<slug>.json",
-}
+    `codes/` is read once and every location is measured against that same
+    set, so no location can satisfy itself: one missing entry leaves one
+    orphan per artifact behind it, counted once per kind.
+    """
+    codes = code_slugs(root)
+    return {name: orphan_slugs(root, kind, codes)
+            for name, kind in KINDS.items()}
 
 
 def main(argv=None):
@@ -123,30 +172,27 @@ def main(argv=None):
     args = ap.parse_args(argv)
 
     root = os.path.abspath(args.root)
-    missing = [d for d in ("codes", "notes", "certs", "circuits")
-               if not os.path.isdir(os.path.join(root, d))]
+    missing = [d for d in REQUIRED if not os.path.isdir(os.path.join(root, d))]
     if missing:
-        print(f"FAIL: no {'/'.join(missing)} under {root}; wrong --root?")
+        print(f"FAIL: no {', '.join(missing)} under {root}; wrong --root?")
         return 2
 
     found = scan(root)
     total = sum(len(v) for v in found.values())
     if not total:
-        print("ok: every note, certificate and circuit names an existing entry")
+        print("ok: every artifact names an existing entry")
         return 0
 
     print(f"orphaned artifacts ({total}):")
-    for kind in ("notes", "certs", "circuits"):
-        slugs = found[kind]
+    for name, kind in KINDS.items():
+        slugs = found[name]
         if not slugs:
             continue
-        print(f"\n  {kind}: {len(slugs)}  -- {LABEL[kind]}")
+        print(f"\n  {name}: {len(slugs)}  -- {kind['label']}")
         if args.quiet:
             continue
-        suffix = "/" if kind == "circuits" else ".md" if kind == "notes" else ".json"
-        indent = "circuits/" if kind == "circuits" else f"{kind}/"
         for slug in slugs:
-            print(f"    {indent}{slug}{suffix}")
+            print(f"    {kind['prefix']}{slug}{kind['suffix']}")
 
     print("\nThe entry was removed or renamed and the artifact was not.")
     print("Either the entry comes back, or the artifact goes with it. A note")

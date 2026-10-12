@@ -269,12 +269,27 @@ jobs:
         working-directory: submitted
         run: uv run --frozen python verify/check_certs.py
       - name: tree consistency (an artifact may not outlive its entry)
-        working-directory: submitted
+        working-directory: trusted
         # check_certs validates a certificate without asking whether its entry
         # still exists, and check_prose reads only files the PR changes, so a
         # note or cert left behind by a removal elsewhere was never seen by
         # anything. This is the sweep that closes that gap.
-        run: uv run --frozen python verify/check_tree_consistency.py
+        #
+        # The base branch's copy of the checker, run against the submitted
+        # tree: a PR that edits this file and re-pins the manifest must not be
+        # judged by its own weakened copy. That is the rule prose.yml and the
+        # scope check above already follow; check_certs.py still runs the
+        # submitted copy, which this deliberately does not repeat.
+        #
+        # PRs that touch only prose do not reach this workflow at all (the
+        # paths filter in `on:` skips *.md), so prose.yml runs the same sweep
+        # from its own trusted checkout; this one covers push and schedule.
+        run: |
+          if [ -f verify/check_tree_consistency.py ]; then
+            uv run --frozen python verify/check_tree_consistency.py --root ../submitted
+          else
+            echo "base branch has no verify/check_tree_consistency.py yet; skipping"
+          fi
       - name: self-tests (every verify/ and research/ test_*.py; skipped for codes-only PRs)
         if: github.event_name != 'pull_request' || steps.changes.outputs.only_codes != 'true'
         working-directory: submitted
