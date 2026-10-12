@@ -48,7 +48,7 @@ witness and its budget, so the evidence trail is the PR set below.
 | [[396,10,37]], now `codes/396-10-33.json` | 37 | 33 | #1743 | sampled |
 | [[600,8,96]], now `codes/600-8-70.json` | 96 | 92 | #1779 | sampled |
 | [[360,8,48]], now `codes/360-8-44.json` | 48 | 45 | #1778 | sampled |
-| [[968,18,33]], `codes/968-18-31.json` | 33 | 32 | #1852 (open) | sampled, later run at the same budget, seed 2051 |
+| [[968,18,33]], now `codes/968-18-31.json` | 33 | 32 | #1852 (open) | sampled, later run at the same budget, seed 2051 |
 | [[390,82,32]], now `codes/390-82-31-b.json` | 32 | 31 | #1761 | exact, duplicate of [[390,82,31]] (issue #1651); RIS read 32 |
 
 The GPU also read 19 against 20 on [[562,18,20]]; PR #1731 had already
