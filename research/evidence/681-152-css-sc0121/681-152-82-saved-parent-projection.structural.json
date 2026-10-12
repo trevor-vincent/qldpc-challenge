@@ -1,0 +1,306 @@
+{
+  "name": "[[681,152,82]] single-qubit CSS shortening",
+  "checks": [
+    {
+      "check": "schema_valid",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "qubit_indices_in_range",
+      "ok": true,
+      "detail": "max index 680, n=681"
+    },
+    {
+      "check": "no_repeated_qubits_in_a_check",
+      "ok": true,
+      "detail": "rows with repeats: []"
+    },
+    {
+      "check": "tanner_connected",
+      "ok": true,
+      "detail": "Tanner graph has 1 connected component(s)"
+    },
+    {
+      "check": "stabilizer_group_connected",
+      "ok": true,
+      "detail": "stabilizer group splits into 1 independent block(s) on disjoint qubit sets (sizes 681)"
+    },
+    {
+      "check": "css_commutation",
+      "ok": true,
+      "detail": "H_X H_Z^T = 0 over GF(2)"
+    },
+    {
+      "check": "k_matches_claim",
+      "ok": true,
+      "detail": "computed k=152, claimed 152"
+    },
+    {
+      "check": "k_at_least_1",
+      "ok": true,
+      "detail": "computed k=152; a submission must encode >= 1 logical qubit"
+    },
+    {
+      "check": "check_weight_is_ldpc",
+      "ok": true,
+      "detail": "max check weight 32"
+    },
+    {
+      "check": "model_version_specified",
+      "ok": true,
+      "detail": "GPT-6"
+    },
+    {
+      "check": "family_in_vocabulary",
+      "ok": true,
+      "detail": "'punctured-css' is a new family tag, accepted but not yet in the vocabulary; please open an issue so the tracks and the site labels can follow"
+    },
+    {
+      "check": "distance_X_witness",
+      "ok": true,
+      "detail": "weight=85 (claim 85), in_ker=True, nontrivial=True"
+    },
+    {
+      "check": "distance_Z_witness",
+      "ok": true,
+      "detail": "weight=82 (claim 82), in_ker=True, nontrivial=True"
+    },
+    {
+      "check": "d_matches_min_side",
+      "ok": true,
+      "detail": "min earned side = 82, claimed d = 82"
+    },
+    {
+      "check": "local_hadamard_css_images",
+      "ok": true,
+      "detail": "1 local-Hadamard image(s) of this CSS code filed with it, so a Hadamard-relabelled copy collides with it whichever code_type it is submitted under"
+    }
+  ],
+  "ok": true,
+  "computed": {
+    "code_type": "CSS",
+    "n": 681,
+    "rank_HX": 264,
+    "rank_HZ": 265,
+    "k": 152,
+    "max_check_weight": 32,
+    "weight_class": "weight-9plus",
+    "diagnostics": {
+      "tanner_girth": {
+        "X": 4,
+        "Z": 4
+      },
+      "weight_profile": {
+        "X": {
+          "row": {
+            "min": 32,
+            "max": 32,
+            "mean": 32.0
+          },
+          "column": {
+            "min": 11,
+            "max": 16,
+            "mean": 15.272
+          }
+        },
+        "Z": {
+          "row": {
+            "min": 31,
+            "max": 32,
+            "mean": 31.953
+          },
+          "column": {
+            "min": 16,
+            "max": 16,
+            "mean": 16.0
+          }
+        }
+      },
+      "trapping_sets": {
+        "max_size": 3,
+        "candidate_cap": 2000000,
+        "X": {
+          "complete_through_size": 2,
+          "counts": [
+            [
+              1,
+              11,
+              1
+            ],
+            [
+              1,
+              12,
+              6
+            ],
+            [
+              1,
+              13,
+              20
+            ],
+            [
+              1,
+              14,
+              87
+            ],
+            [
+              1,
+              15,
+              233
+            ],
+            [
+              1,
+              16,
+              334
+            ],
+            [
+              2,
+              17,
+              1
+            ],
+            [
+              2,
+              18,
+              9
+            ],
+            [
+              2,
+              19,
+              26
+            ],
+            [
+              2,
+              20,
+              104
+            ],
+            [
+              2,
+              21,
+              258
+            ],
+            [
+              2,
+              22,
+              536
+            ],
+            [
+              2,
+              23,
+              1079
+            ],
+            [
+              2,
+              24,
+              2754
+            ],
+            [
+              2,
+              25,
+              6074
+            ],
+            [
+              2,
+              26,
+              11899
+            ],
+            [
+              2,
+              27,
+              19613
+            ],
+            [
+              2,
+              28,
+              27448
+            ],
+            [
+              2,
+              29,
+              27135
+            ],
+            [
+              2,
+              30,
+              19775
+            ]
+          ]
+        },
+        "Z": {
+          "complete_through_size": 2,
+          "counts": [
+            [
+              1,
+              16,
+              681
+            ],
+            [
+              2,
+              22,
+              340
+            ],
+            [
+              2,
+              24,
+              1023
+            ],
+            [
+              2,
+              26,
+              5783
+            ],
+            [
+              2,
+              28,
+              32292
+            ],
+            [
+              2,
+              30,
+              80915
+            ]
+          ]
+        }
+      },
+      "row_space_intersection_dimension": 0
+    },
+    "locality_class": "unrestricted",
+    "flags": {
+      "css": true,
+      "stabilizer": false,
+      "locality_class": "unrestricted",
+      "modular": false
+    }
+  },
+  "earned_distance": {
+    "X": {
+      "value": 85,
+      "tier": "upper_bound"
+    },
+    "Z": {
+      "value": 82,
+      "tier": "upper_bound"
+    },
+    "d": {
+      "value": 82,
+      "tier": "upper_bound"
+    }
+  },
+  "signature": {
+    "hash": "eb78a17eeed44f89",
+    "n": 681,
+    "k": 152,
+    "d": 82
+  },
+  "fingerprint": "d254221e33310cb3",
+  "css_equivalent": {
+    "of": "css",
+    "images": 1,
+    "enumeration_capped": false,
+    "fingerprints": [
+      "497923c62389646b"
+    ],
+    "signatures": [
+      "eb78a17eeed44f89"
+    ]
+  }
+}
