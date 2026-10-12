@@ -1,0 +1,92 @@
+{
+  "m": 341,
+  "n": 682,
+  "k": 150,
+  "w": 31,
+  "a": [
+    0,
+    1,
+    13,
+    21,
+    39,
+    48,
+    114,
+    151,
+    154,
+    157,
+    175,
+    196,
+    214,
+    248,
+    284,
+    335
+  ],
+  "b": [
+    0,
+    4,
+    9,
+    18,
+    62,
+    71,
+    80,
+    124,
+    197,
+    238,
+    252,
+    290,
+    297,
+    315,
+    326
+  ],
+  "source_ideal": "0xf6be8b4be37290382c9",
+  "construction_method": "Shortened native kernel parity-check generation and Frobenius pairing; divisor ideal from Degree75 divisor 0xf6be8b4be37290382c9 of x^341+1, with seven primitive degree10 factors and one degree5 factor. Obtained by deleting the parity factor from a retained degree76 ideal. No inherited quantum distance. Sparse checks sampled outside proper ideal 0x11bc39ddc2597b04875b with the unchanged native observable test.",
+  "derivations": [
+    {
+      "kind": "Retained native even check, revalidated in the parity-deleted ideal",
+      "seed": 292900103,
+      "raw": "/Users/vincent.russo/Projects/genesis/wt/qldpc-publish-20261009/research/candidates/publication-20261009/m341-random-degree76-refinement-b/ideal01/checks/run003-raw.json",
+      "original_support": [
+        0,
+        1,
+        29,
+        36,
+        97,
+        161,
+        178,
+        197,
+        202,
+        219,
+        223,
+        226,
+        272,
+        286,
+        305,
+        334
+      ],
+      "frobenius_multiplier": 128
+    },
+    {
+      "kind": "native shortened kernel",
+      "seed": 303800002,
+      "raw": "/Users/vincent.russo/Projects/genesis/wt/qldpc-publish-20261009/research/candidates/publication-20261009/m341-one-small-odd75-20261011/refinement/ideal00/checks/run002-raw.json",
+      "original_support": [
+        0,
+        1,
+        20,
+        31,
+        63,
+        103,
+        164,
+        175,
+        186,
+        230,
+        243,
+        252,
+        258,
+        305,
+        330
+      ],
+      "frobenius_multiplier": 4
+    }
+  ]
+}
