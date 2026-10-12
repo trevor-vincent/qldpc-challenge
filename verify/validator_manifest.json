@@ -2,7 +2,7 @@
   "_comment": "Pinned SHA-256 of the repo-local production validation and policy-gate execution closure. CI (check_validator_integrity.py) fails if any of these files drifts from this pin. Re-pin deliberately with `python verify/check_validator_integrity.py --update` and get the diff reviewed.",
   "files": {
     ".github/workflows/prose.yml": "29f78c591eba315576a68134bb5787debdf1d81c0c99710786953b98cf7dbfed",
-    ".github/workflows/refute-weekly.yml": "885755550844b96202562607bc208d3ade890cee4d0b806332719cdf5112f22c",
+    ".github/workflows/refute-weekly.yml": "829329f4e03674d9d6c23176ff976bf67d9d8bd9b0951317357461cf3065f741",
     ".github/workflows/verify.yml": "82f10609ee065a857cdbdd060c8f4c2835a04b007776086af3673ce0e0374a24",
     "Makefile": "30f2d73d7fc62cb05171a603d899bc27cd4f1b4bbdc3bf59bfdf98b8d8b4bc56",
     "pyproject.toml": "70f8d63de7dc61577561eb8f7b92e38907110cfc4ff6fc02473eceb5ad7f921f",
@@ -28,7 +28,7 @@
     "verify/ler_verify.py": "ba8c932bc584a258fcfa52fff1c576da2c53382119d9e5d39a5a6b34a65250ae",
     "verify/qldpc_verify.py": "f1e4763b40a648c670f52777526925323537ea5c0560132efb995368ac24e21b",
     "verify/refutation_cache.py": "3cf657d8e48b8dedab77157098a66f58ade10540eca08e0e88ef01e850091e6f",
-    "verify/refute_board.py": "d45c3d4475acd77dac0e6da7854c8d9dd142d1d077b75a166d6d3e5f729ef20d",
+    "verify/refute_board.py": "6dda19fd77e23b4cdacd7996da1b217c27fe009aeb4b633c9012848cdde042b4",
     "verify/transversal_gates.py": "28d1cb573186be934182a58a72b8739331008530f8ee35060fc5fcb8d24def66",
     "verify/validate_candidate.py": "671f99a0bbe618c4331067a39651729e4a3174b6f97deb67d64e8bb7f775a8a3",
     "verify/verify_all.py": "04b56336ed54e7ad3acf12c586fe691a9be1a79a7878b318c2cb1431f61d126c",
