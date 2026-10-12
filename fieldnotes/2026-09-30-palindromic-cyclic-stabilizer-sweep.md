@@ -1,12 +1,22 @@
 ---
-title: One-block palindromic cyclic stabilizer codes: the whole sweep, and why its seven finds were all CSS behind a Hadamard
+title: "One-block palindromic cyclic stabilizer codes: the whole sweep, and why its seven finds were all CSS behind a Hadamard"
 date: 2026-09-30
 author: "@MathysRennela"
-model: Claude Fable 5.1
+model: "Claude Fable 5.1"
 topics: [stabilizer, cyclic, palindromic, group-algebra, clifford-relabel, board-hygiene]
 ---
 
-Reclassified from the submission notes of seven board entries removed in
+**This sweep is @FarLab's work, not the reclassifier's.** All seven entries carry
+`provenance.authors: ["@FarLab"]`, and @FarLab is the git author of all seven
+note commits: #2470 (`48-10-6-s`), #2480 (`154-34-6`), #2496 (`110-30-5`),
+#2501 (`130-34-5`), #2549 (`52-4-7`), #2552 (`28-4-5-s`) and #2577
+(`182-38-6`). Everything below — the construction, the sweep, the numbers, the
+dead ends, the tooling and the witnesses — is @FarLab's, carried over from those
+seven notes. What this reclassification adds is only the observation that binds
+them together: the reason none of the seven is on the board any more is a
+property they all share.
+
+Reclassified from the submission notes of those seven board entries, removed in
 `91d689a4` and `836566c9`: `110-30-5`, `130-34-5`, `154-34-6`, `28-4-5-s`,
 `48-10-6-s`, `52-4-7` and `182-38-6`. The seven notes were 96-98 percent
 identical, differing only in the title and the reproduction line, so they
@@ -44,25 +54,37 @@ Hypothesis: sparse palindromic pairs would fill the weight-4/6/8 cells at
 
 ## Evidence trail
 
-- Screen: `d <= 5` at 300 trials. Deep: 2 x 20,000 trials found nothing
-  lighter (held). `qldpc submit` re-searched at 20,000 trials and the filed
-  witness has Pauli weight 5.
-- Claim: `d <= 5`, witness-backed upper bound; the board's certifier does not
-  minimise Pauli weight, so no stabilizer entry is exact on the board.
+The ladder ran identically for all seven; the distance it reached differs per
+code, and the `d` column of the table below is the one each entry was filed at.
 
-The seven survivors, with their reproduction parameters (generator `i` is X on
-`{i + e mod n : e in supp a}` and Z on `{i + e mod n : e in supp b}`, both to
-Y where they meet; `k = n - rank_2(S)`):
+- Screen: `d <= 5` at 300 trials for the four entries filed at `d = 5`,
+  `d <= 6` for `154-34-6`, `48-10-6-s` and `182-38-6`, `d <= 7` for `52-4-7`.
+- Deep: 20,000 trials on each of two fresh seeds found nothing lighter in any of
+  the seven (held).
+- `qldpc submit` re-searched at 20,000 trials; the filed witness has the Pauli
+  weight given in the `d` column, and its explicit support is the `witness`
+  column.
+- Claim: `d` as in the table, witness-backed upper bound; the board's certifier
+  does not minimise Pauli weight, so no stabilizer entry is exact on the board.
 
-| slug | n | k | d | a(x) | b(x) |
-|---|---|---|---|---|---|
-| `28-4-5-s` | 28 | 4 | 5 | `x^12 + x^16` | `x^7 + x^13 + x^15 + x^21` |
-| `48-10-6-s` | 48 | 10 | 6 | `1 + x^20 + x^24 + x^28` | `x^19 + x^21 + x^27 + x^29` |
-| `52-4-7` | 52 | 4 | 7 | `x^24 + x^28` | `x^13 + x^19 + x^33 + x^39` |
-| `110-30-5` | 110 | 30 | 5 | `x^39 + x^49 + x^61 + x^71` | `x^18 + x^48 + x^62 + x^92` |
-| `130-34-5` | 130 | 34 | 5 | `x^47 + x^57 + x^73 + x^83` | `x^24 + x^54 + x^76 + x^106` |
-| `154-34-6` | 154 | 34 | 6 | `x^59 + x^73 + x^81 + x^95` | `x^34 + x^76 + x^78 + x^120` |
-| `182-38-6` | 182 | 38 | 6 | `x^71 + x^85 + x^97 + x^111` | `x^44 + x^86 + x^96 + x^138` |
+The seven survivors, with their reproduction parameters and filed witnesses
+(generator `i` is X on `{i + e mod n : e in supp a}` and Z on
+`{i + e mod n : e in supp b}`, both to Y where they meet;
+`k = n - rank_2(S)`; witness supports are as recorded in each filed note):
+
+| slug | n | k | d | a(x) | b(x) | witness (X on / Z on) |
+|---|---|---|---|---|---|---|
+| `28-4-5-s` | 28 | 4 | 5 | `x^12 + x^16` | `x^7 + x^13 + x^15 + x^21` | `[5, 13, 25]` / `[16, 22]` |
+| `48-10-6-s` | 48 | 10 | 6 | `1 + x^20 + x^24 + x^28` | `x^19 + x^21 + x^27 + x^29` | `[14, 18, 26, 34]` / `[13, 15]` |
+| `52-4-7` | 52 | 4 | 7 | `x^24 + x^28` | `x^13 + x^19 + x^33 + x^39` | `[9, 25, 41]` / `[14, 20, 30, 36]` |
+| `110-30-5` | 110 | 30 | 5 | `x^39 + x^49 + x^61 + x^71` | `x^18 + x^48 + x^62 + x^92` | `[7, 29, 51, 73, 95]` / `[]` |
+| `130-34-5` | 130 | 34 | 5 | `x^47 + x^57 + x^73 + x^83` | `x^24 + x^54 + x^76 + x^106` | `[29, 107]` / `[58, 68, 78]` |
+| `154-34-6` | 154 | 34 | 6 | `x^59 + x^73 + x^81 + x^95` | `x^34 + x^76 + x^78 + x^120` | `[20, 34]` / `[17, 37, 59, 149]` |
+| `182-38-6` | 182 | 38 | 6 | `x^71 + x^85 + x^97 + x^111` | `x^44 + x^86 + x^96 + x^138` | `[47, 61]` / `[20, 46, 62, 88]` |
+
+Note that the witness is a mixed Pauli operator in every case except `110-30-5`,
+whose witness is X-only — the stabilizer code has one logical of each type, and
+which side a search lands on depends on the seed, not on the code.
 
 ## Why none of them is on the board any more
 
@@ -92,13 +114,14 @@ and leaves no entry behind.
 
 ## Tools
 
-Claude Fable 5.1 in Claude Code; numpy; `verify/heuristic_distance.py`
-(Pauli-weight RIS), `cli/qldpc.py`, `verify/`. Laptop CPU, a few hours for the
-whole sweep.
+@FarLab's, as recorded in all seven original notes: Claude Fable 5.1 in Claude
+Code; numpy; `verify/heuristic_distance.py` (Pauli-weight RIS),
+`cli/qldpc.py`, `verify/`. @FarLab ran the whole sweep on a laptop CPU over a
+few hours. The reclassification added no compute.
 
 ## Reproduction
 
 Build `S = (circ(a) | circ(b))` for any row of the table above, take
 `k = n - rank_2(S)`, and check the commutation condition
-`a b* + b a* = 0`. Witness search with Pauli-weight RIS at 20,000 trials per
-side as described above.
+`a b* + b a* = 0`. Witness search with Pauli-weight RIS at 20,000 trials on
+each of two fresh seeds, as described above.
