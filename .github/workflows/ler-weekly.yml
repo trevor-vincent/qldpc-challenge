@@ -9,6 +9,7 @@ name: ler-weekly
 
 permissions:
   contents: write
+  issues: write     # the tracking issue of failed and unverifiable points (#2820)
 
 on:
   schedule:
@@ -80,3 +81,34 @@ jobs:
             echo "push raced; retrying ($attempt)"
           done
           echo "failed to push the site after 5 attempts"; exit 1
+      - name: keep the tracking issue of failed and unverifiable points current (issue #2820)
+        # Reads the receipts this run committed and keeps one issue listing
+        # every failed or unverifiable point: opened when the list is first
+        # non-empty, edited in place while it stays so, closed when it empties.
+        # The issue is found by its exact title among open issues, so renaming
+        # it starts a new one. The script reports and changes nothing.
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          TITLE: "LER replication: failed and unverifiable points"
+        run: |
+          summary=$(uv run --frozen python verify/ler_tracking_issue.py --out tracking-body.md)
+          echo "$summary"
+          points=${summary#points=}; points=${points%% *}
+          number=$(gh issue list --repo "$REPO" --state open --limit 50 \
+            --search "\"failed and unverifiable points\" in:title" --json number,title \
+            --jq 'first(.[] | select(.title == env.TITLE)) | .number // empty')
+          if [ "$points" != "0" ]; then
+            if [ -n "$number" ]; then
+              gh issue edit "$number" --repo "$REPO" --body-file tracking-body.md
+              echo "updated #$number"
+            else
+              gh issue create --repo "$REPO" --title "$TITLE" --body-file tracking-body.md
+            fi
+          elif [ -n "$number" ]; then
+            gh issue close "$number" --repo "$REPO" \
+              --comment "Every point replicated in the run of $(date -u +%Y-%m-%d) (run ${{ github.run_id }}); closing until a receipt reports a failed or unverifiable point again."
+            echo "closed #$number"
+          else
+            echo "nothing to report and no open tracking issue"
+          fi
