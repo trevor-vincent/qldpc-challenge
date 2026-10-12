@@ -1,0 +1,62 @@
+{
+  "candidate": {
+    "d": 83,
+    "family": "generalized-bicycle",
+    "fingerprint": "a36b869d1ab8fd47",
+    "k": 150,
+    "locality_class": "unrestricted",
+    "n": 682,
+    "signature": "6b0b2e235b86ae1a",
+    "weight_class": "weight-9plus"
+  },
+  "gates": {
+    "dedup": {
+      "exact_duplicate_of": null,
+      "wl_equivalent_of": null
+    },
+    "novelty": {
+      "advances_by": [
+        "d",
+        "k",
+        "w"
+      ],
+      "board": "CSS",
+      "board_advancing": true,
+      "cell": [
+        "weight-9plus",
+        "unrestricted"
+      ],
+      "d_only_gain": false,
+      "d_only_peers": [],
+      "dominated_by": [],
+      "literature_novelty": "unverified"
+    },
+    "refute": {
+      "detail": "no lighter logical in 8000 RIS trials (seed 834672226)",
+      "refuted": false,
+      "seed": 834672226
+    },
+    "verify": {
+      "failed_checks": [],
+      "locality_class": "unrestricted",
+      "ok": true,
+      "weight_class": "weight-9plus"
+    }
+  },
+  "labels": [
+    "advances the weight-9plus x unrestricted board",
+    "literature novelty UNVERIFIED"
+  ],
+  "passed": true,
+  "recorded": {
+    "candidate": "682-150-83-os75i0_0060-both.json",
+    "content_digest": "9c372dc6b942e9734404594e7d81501b2dc4f400f173c77450e7103168fa87f5",
+    "recorded_at": "2026-10-12T13:20:05.013970+00:00",
+    "refutation_reused": false,
+    "run_id": "20261012-092005-vincentrusso-MacBook-Pro-24306"
+  },
+  "validator": {
+    "seed": 834672226,
+    "source_sha256": "671f99a0bbe618c4331067a39651729e4a3174b6f97deb67d64e8bb7f775a8a3"
+  }
+}
