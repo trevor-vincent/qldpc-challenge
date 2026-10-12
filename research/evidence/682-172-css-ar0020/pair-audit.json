@@ -1,0 +1,36 @@
+{
+  "audit": "research/audits/leader_audit.py pair",
+  "trials": 100000,
+  "seeds": [
+    306100000
+  ],
+  "threads": 2,
+  "pair_depth": 512,
+  "backend": "pinned native gf2_fast from identical source SHA-256 434919c1c2877a416ab871765129177ddfc53f8fb7ead9a5092686ff870e3cd3",
+  "candidate": {
+    "code": "codes/682-172-75.json",
+    "code_sha256": "e1f92c5db44240d69db180c276eb955dd1cee299c15966f30ad1b7a496219433",
+    "raw": "pair-candidate-witness.json",
+    "raw_sha256": "7307c93f6733491928d669b714c5e1af91d70d9f06656afa551e2e4eaae97f66",
+    "seed": 306100000,
+    "trials": 100000,
+    "side": "X",
+    "weight": 77,
+    "claim": 75,
+    "cpu_verified": true
+  },
+  "peer": {
+    "code": "codes/682-172-50.json",
+    "code_sha256": "15de566fec8130a37993c78170a798cbbdc243cc9e071e4c39b48210354886b9",
+    "raw": "pair-peer-witness.json",
+    "raw_sha256": "b2df0a511563cd6b8edc2e18614291b4f4fff6d1a66ff9e049278dd20a1b8ddc",
+    "seed": 306100000,
+    "trials": 100000,
+    "side": "X",
+    "weight": 75,
+    "claim": 50,
+    "cpu_verified": true
+  },
+  "decision": "inconclusive: neither claim was reached at this depth -- no information",
+  "interpretation": "No lighter logical found for candidate d<=75 at this budget; this does not certify its distance or establish a matched-depth advantage over the peer."
+}
