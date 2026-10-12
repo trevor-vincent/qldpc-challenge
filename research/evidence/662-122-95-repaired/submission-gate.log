@@ -1,0 +1,15 @@
+refutation seed = 304320000  (reproduce: python verify/gate_changed.py --seed 304320000 <files>; the fast pass is also wall-clock capped, see fast_trials in the receipt)
+
+  RIS-fast: 150,000/8,000,000 trials, 385s, best w=188
+  RIS-fast: 310,000/8,000,000 trials, 800s, best w=188
+  RIS-fast: 510,000/8,000,000 trials, 1373s, best w=188
+  RIS-fast: 710,000/8,000,000 trials, 1945s, best w=188
+  RIS-fast: 910,000/8,000,000 trials, 2536s, best w=188
+  RIS-fast: 1,110,000/8,000,000 trials, 3066s, best w=188
+  RIS-fast: 1,310,000/8,000,000 trials, 3541s, best w=188
+  RIS-fast: 1,510,000/8,000,000 trials, 4014s, best w=181
+  RIS-fast: 1,710,000/8,000,000 trials, 4470s, best w=151
+  RIS-fast: 1,910,000/8,000,000 trials, 4922s, best w=151
+  RIS-fast: 2,110,000/8,000,000 trials, 5350s, best w=151
+  RIS-fast: wall-clock cap reached after 2,310,000/8,000,000 trials (5734s); best proposal w=151
+ok       codes/662-122-95.json (orbit-fold x 12 @ 50000 + deep, 1 RIS seeds x 104440 trials (<=240s each) + fast x 2310000 of 8000000 (wall-clock cap 90 min reached); diff: new): no logical lighter than 95

@@ -1,0 +1,9 @@
+{
+  "feasible": true,
+  "constraint_rows": 12578,
+  "selected_pairs": 108,
+  "changed_pair_bits": 10,
+  "reported_gap": 0.06428436989024688,
+  "optimality_proved": false,
+  "problem_sha256": "53ba2e9a0f9516f55a5365bfedd8683d17339fef45437f647c2a46a6f94b1672"
+}

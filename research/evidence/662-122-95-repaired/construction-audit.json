@@ -1,0 +1,495 @@
+{
+  "scope": "Exact construction and witness checks; no distance lower bound.",
+  "construction_validated": true,
+  "parent_structural": {
+    "name": "[[662,122,80]] recombined cyclic generalized bicycle",
+    "checks": [
+      {
+        "check": "schema_valid",
+        "ok": true,
+        "detail": ""
+      },
+      {
+        "check": "qubit_indices_in_range",
+        "ok": true,
+        "detail": "max index 661, n=662"
+      },
+      {
+        "check": "no_repeated_qubits_in_a_check",
+        "ok": true,
+        "detail": "rows with repeats: []"
+      },
+      {
+        "check": "tanner_connected",
+        "ok": true,
+        "detail": "Tanner graph has 1 connected component(s)"
+      },
+      {
+        "check": "stabilizer_group_connected",
+        "ok": true,
+        "detail": "stabilizer group splits into 1 independent block(s) on disjoint qubit sets (sizes 662)"
+      },
+      {
+        "check": "css_commutation",
+        "ok": true,
+        "detail": "H_X H_Z^T = 0 over GF(2)"
+      },
+      {
+        "check": "k_matches_claim",
+        "ok": true,
+        "detail": "computed k=122, claimed 122"
+      },
+      {
+        "check": "k_at_least_1",
+        "ok": true,
+        "detail": "computed k=122; a submission must encode >= 1 logical qubit"
+      },
+      {
+        "check": "check_weight_is_ldpc",
+        "ok": true,
+        "detail": "max check weight 24"
+      },
+      {
+        "check": "model_version_specified",
+        "ok": true,
+        "detail": "GPT-6"
+      },
+      {
+        "check": "family_in_vocabulary",
+        "ok": true,
+        "detail": "generalized-bicycle"
+      },
+      {
+        "check": "distance_X_witness",
+        "ok": true,
+        "detail": "weight=80 (claim 80), in_ker=True, nontrivial=True"
+      },
+      {
+        "check": "distance_Z_witness",
+        "ok": true,
+        "detail": "weight=80 (claim 80), in_ker=True, nontrivial=True"
+      },
+      {
+        "check": "d_matches_min_side",
+        "ok": true,
+        "detail": "min earned side = 80, claimed d = 80"
+      },
+      {
+        "check": "local_hadamard_css_images",
+        "ok": true,
+        "detail": "1 local-Hadamard image(s) of this CSS code filed with it, so a Hadamard-relabelled copy collides with it whichever code_type it is submitted under"
+      }
+    ],
+    "ok": true,
+    "computed": {
+      "code_type": "CSS",
+      "n": 662,
+      "rank_HX": 270,
+      "rank_HZ": 270,
+      "k": 122,
+      "max_check_weight": 24,
+      "weight_class": "weight-9plus",
+      "diagnostics": {
+        "tanner_girth": {
+          "X": 4,
+          "Z": 4
+        },
+        "weight_profile": {
+          "X": {
+            "row": {
+              "min": 24,
+              "max": 24,
+              "mean": 24.0
+            },
+            "column": {
+              "min": 12,
+              "max": 12,
+              "mean": 12.0
+            }
+          },
+          "Z": {
+            "row": {
+              "min": 24,
+              "max": 24,
+              "mean": 24.0
+            },
+            "column": {
+              "min": 12,
+              "max": 12,
+              "mean": 12.0
+            }
+          }
+        },
+        "trapping_sets": {
+          "max_size": 3,
+          "candidate_cap": 2000000,
+          "X": {
+            "complete_through_size": 2,
+            "counts": [
+              [
+                1,
+                12,
+                662
+              ],
+              [
+                2,
+                14,
+                331
+              ],
+              [
+                2,
+                16,
+                662
+              ],
+              [
+                2,
+                18,
+                2317
+              ],
+              [
+                2,
+                20,
+                17212
+              ],
+              [
+                2,
+                22,
+                45678
+              ]
+            ]
+          },
+          "Z": {
+            "complete_through_size": 2,
+            "counts": [
+              [
+                1,
+                12,
+                662
+              ],
+              [
+                2,
+                14,
+                331
+              ],
+              [
+                2,
+                16,
+                662
+              ],
+              [
+                2,
+                18,
+                2317
+              ],
+              [
+                2,
+                20,
+                17212
+              ],
+              [
+                2,
+                22,
+                45678
+              ]
+            ]
+          }
+        },
+        "row_space_intersection_dimension": 0
+      },
+      "locality_class": "unrestricted",
+      "flags": {
+        "css": true,
+        "stabilizer": false,
+        "locality_class": "unrestricted",
+        "modular": false
+      }
+    },
+    "earned_distance": {
+      "X": {
+        "value": 80,
+        "tier": "upper_bound"
+      },
+      "Z": {
+        "value": 80,
+        "tier": "upper_bound"
+      },
+      "d": {
+        "value": 80,
+        "tier": "upper_bound"
+      }
+    },
+    "signature": {
+      "hash": "41af025151322225",
+      "n": 662,
+      "k": 122,
+      "d": 80
+    },
+    "fingerprint": "b9c55291e1d85379",
+    "css_equivalent": {
+      "of": "css",
+      "images": 1,
+      "enumeration_capped": false,
+      "fingerprints": [
+        "22e25a4ac346683f"
+      ],
+      "signatures": [
+        "41af025151322225"
+      ]
+    }
+  },
+  "candidate_structural": {
+    "name": "[[662,122,95]] repaired pair-Clifford image",
+    "checks": [
+      {
+        "check": "schema_valid",
+        "ok": true,
+        "detail": ""
+      },
+      {
+        "check": "qubit_indices_in_range",
+        "ok": true,
+        "detail": "max index 661, n=662"
+      },
+      {
+        "check": "no_repeated_qubits_in_a_check",
+        "ok": true,
+        "detail": "rows with repeats: []"
+      },
+      {
+        "check": "tanner_connected",
+        "ok": true,
+        "detail": "Tanner graph has 1 connected component(s)"
+      },
+      {
+        "check": "stabilizer_group_connected",
+        "ok": true,
+        "detail": "stabilizer group splits into 1 independent block(s) on disjoint qubit sets (sizes 662)"
+      },
+      {
+        "check": "stabilizer_commutation",
+        "ok": true,
+        "detail": "A B^T + B A^T = 0 over GF(2) (every pair of generators commutes)"
+      },
+      {
+        "check": "stabilizer_code_is_not_css",
+        "ok": true,
+        "detail": "662 of 662 generators mix X and Z"
+      },
+      {
+        "check": "k_matches_claim",
+        "ok": true,
+        "detail": "computed k=122, claimed 122"
+      },
+      {
+        "check": "k_at_least_1",
+        "ok": true,
+        "detail": "computed k=122; a submission must encode >= 1 logical qubit"
+      },
+      {
+        "check": "check_weight_is_ldpc",
+        "ok": true,
+        "detail": "max check weight 32"
+      },
+      {
+        "check": "model_version_specified",
+        "ok": true,
+        "detail": "GPT-6"
+      },
+      {
+        "check": "distance_P_witness",
+        "ok": true,
+        "detail": "weight=95 (claim 95), in_ker=True, nontrivial=True, hamming=162 (Y factors: 67)"
+      },
+      {
+        "check": "d_matches_pauli_side",
+        "ok": true,
+        "detail": "earned P = 95, claimed d = 95"
+      },
+      {
+        "check": "stabilizer_code_is_not_locally_css",
+        "ok": true,
+        "detail": "no single-qubit Cliffords make every generator pure X or pure Z: the code is non-CSS under any local Clifford"
+      }
+    ],
+    "ok": true,
+    "computed": {
+      "code_type": "stabilizer",
+      "n": 662,
+      "rank_S": 540,
+      "k": 122,
+      "max_check_weight": 32,
+      "weight_class": "weight-9plus",
+      "diagnostics": {
+        "tanner_girth": {
+          "S": 4
+        },
+        "weight_profile": {
+          "S": {
+            "row": {
+              "min": 27,
+              "max": 32,
+              "mean": 30.526
+            },
+            "column": {
+              "min": 24,
+              "max": 44,
+              "mean": 30.526
+            }
+          }
+        },
+        "trapping_sets": {
+          "max_size": 3,
+          "candidate_cap": 2000000,
+          "S": {
+            "complete_through_size": 2,
+            "counts": [
+              [
+                1,
+                24,
+                446
+              ],
+              [
+                1,
+                44,
+                216
+              ],
+              [
+                2,
+                0,
+                108
+              ],
+              [
+                2,
+                36,
+                688
+              ],
+              [
+                2,
+                38,
+                1082
+              ],
+              [
+                2,
+                40,
+                3694
+              ],
+              [
+                2,
+                42,
+                2310
+              ],
+              [
+                2,
+                44,
+                19931
+              ],
+              [
+                2,
+                46,
+                11314
+              ],
+              [
+                2,
+                52,
+                392
+              ],
+              [
+                2,
+                54,
+                580
+              ],
+              [
+                2,
+                56,
+                3208
+              ],
+              [
+                2,
+                58,
+                2792
+              ],
+              [
+                2,
+                60,
+                6148
+              ],
+              [
+                2,
+                62,
+                7080
+              ],
+              [
+                2,
+                64,
+                24192
+              ],
+              [
+                2,
+                66,
+                15896
+              ],
+              [
+                2,
+                68,
+                1052
+              ],
+              [
+                2,
+                72,
+                1368
+              ],
+              [
+                2,
+                76,
+                1352
+              ],
+              [
+                2,
+                80,
+                3536
+              ],
+              [
+                2,
+                84,
+                8428
+              ]
+            ]
+          }
+        }
+      },
+      "locality_class": "unrestricted",
+      "flags": {
+        "css": false,
+        "stabilizer": true,
+        "locality_class": "unrestricted",
+        "modular": false
+      }
+    },
+    "earned_distance": {
+      "P": {
+        "value": 95,
+        "tier": "upper_bound"
+      },
+      "d": {
+        "value": 95,
+        "tier": "upper_bound"
+      }
+    },
+    "signature": {
+      "hash": "19ab53df1cadf849",
+      "n": 662,
+      "k": 122,
+      "d": 95
+    },
+    "fingerprint": "8c19ab0d585b42cd"
+  },
+  "n": 662,
+  "k": 122,
+  "witnessed_upper_bound": 95,
+  "check_weight": 32,
+  "pair_count": 108,
+  "candidate_sha256": "66315982037b056b6e98695ee5a43fa318d1cbe1f83a22a24fbe2c10986f0529",
+  "parent_sha256": "9d9e0c4201bf67a3c5808e5c186f8db6bbc62d4e9d2608381448693cadcf7769",
+  "definition_sha256": "455769a6a6d5b1e5f57b0fbe008952a40f303f64ea1626e3cf19003be738585c",
+  "script_sha256": "4365c6a7ebb3add2f3d8f05e4d5ca3ab763fdfed2d4924b50e2b19f47dd4d79c"
+}

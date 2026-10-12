@@ -1,0 +1,90 @@
+{
+  "receipt_version": "1",
+  "submission": {
+    "path": "codes/662-122-95.json",
+    "sha256": "66315982037b056b6e98695ee5a43fa318d1cbe1f83a22a24fbe2c10986f0529",
+    "pull_request": null,
+    "pr_author": null,
+    "base_sha": "6103818d2b641ed80185a89f790ad70491f8db7d",
+    "head_sha": "c66bceb1f9b9c2dd91456c67ba6c45844932674a"
+  },
+  "trusted_validation": {
+    "verifier_commit": "6103818d2b641ed80185a89f790ad70491f8db7d",
+    "validator_source_sha256": "671f99a0bbe618c4331067a39651729e4a3174b6f97deb67d64e8bb7f775a8a3",
+    "validator_seed": 304320000,
+    "structural_result": "passed",
+    "distance_gate": {
+      "refuted": false,
+      "seed": 304320000,
+      "seeds": [
+        304320000
+      ],
+      "trials": 104440,
+      "budget_seconds": 240.0,
+      "deep": true,
+      "fast_trials": 2310000,
+      "fast_target": 8000000,
+      "fast_seconds": 5400.0,
+      "structural_trials": 0,
+      "fold_partitions": 12,
+      "fold_trials": 50000,
+      "short_circuited_by": null,
+      "methods": [
+        "orbit-fold",
+        "RIS#0",
+        "RIS-fast"
+      ],
+      "diff_class": "new",
+      "diff_reason": "no base counterpart"
+    }
+  },
+  "computed": {
+    "n": 662,
+    "k": 122,
+    "d": 95,
+    "family": null,
+    "weight_class": "weight-9plus",
+    "locality_class": "unrestricted",
+    "fingerprint": "8c19ab0d585b42cd",
+    "signature": "19ab53df1cadf849"
+  },
+  "deduplication": {
+    "exact_duplicate_of": null,
+    "wl_equivalent_of": null
+  },
+  "frontier": {
+    "board_advancing": true,
+    "cell": [
+      "weight-9plus",
+      "unrestricted"
+    ],
+    "dominated_by": []
+  },
+  "provenance": {
+    "authors": {
+      "value": [
+        "@vprusso"
+      ],
+      "status": "self_reported"
+    },
+    "contributors": {
+      "value": [],
+      "status": "self_reported"
+    },
+    "model": {
+      "value": "GPT-6",
+      "status": "self_reported"
+    },
+    "novelty": {
+      "value": null,
+      "status": "self_reported"
+    }
+  },
+  "routing": {
+    "status": "eligible_under_current_checks",
+    "reasons": [
+      "advances the weight-9plus x unrestricted stabilizer board",
+      "literature novelty UNVERIFIED"
+    ]
+  }
+}

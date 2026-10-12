@@ -1,0 +1,72 @@
+{
+  "status": "passed_gate_with_incomplete_fast_budget",
+  "source": "/Users/vincent.russo/Projects/genesis/wt/qldpc-publish-20261009/research/candidates/publication-20261009/pair-repair-20261011/candidate/662-122-95-Y.json",
+  "source_sha256": "66315982037b056b6e98695ee5a43fa318d1cbe1f83a22a24fbe2c10986f0529",
+  "candidate": "/Users/vincent.russo/Projects/genesis/wt/qldpc-publish-20261009/research/candidates/publication-20261009/repaired-662-122-95-full-gate-20261011/ci-input/codes/662-122-95.json",
+  "candidate_sha256": "66315982037b056b6e98695ee5a43fa318d1cbe1f83a22a24fbe2c10986f0529",
+  "baseline_commit": "c66bceb1f9b9c2dd91456c67ba6c45844932674a",
+  "board_commit": "6103818d2b641ed80185a89f790ad70491f8db7d",
+  "board_entries": 1956,
+  "trusted_pinned_files_checked": 33,
+  "seed": 304320000,
+  "command": [
+    "/Users/vincent.russo/Projects/genesis/wt/qldpc-goal-20261007/.venv/bin/python",
+    "-u",
+    "/Users/vincent.russo/Projects/genesis/wt/qldpc-publish-20261009/verify/gate_changed.py",
+    "--code-root",
+    "/Users/vincent.russo/Projects/genesis/wt/qldpc-publish-20261009/research/candidates/publication-20261009/repaired-662-122-95-full-gate-20261011/ci-input",
+    "--seed",
+    "304320000",
+    "--receipt-dir",
+    "/Users/vincent.russo/Projects/genesis/wt/qldpc-publish-20261009/research/candidates/publication-20261009/repaired-662-122-95-full-gate-20261011/receipts",
+    "--search-cache",
+    "/Users/vincent.russo/Projects/genesis/wt/qldpc-publish-20261009/research/candidates/publication-20261009/repaired-662-122-95-full-gate-20261011/refutations",
+    "--base-sha",
+    "6103818d2b641ed80185a89f790ad70491f8db7d",
+    "--head-sha",
+    "c66bceb1f9b9c2dd91456c67ba6c45844932674a",
+    "6103818d2b641ed80185a89f790ad70491f8db7d",
+    "codes/662-122-95.json"
+  ],
+  "native_sha256": "06fb004899bf6db79c2471b7b3655a2a33eb1cd414b843eea524c49149d6941d",
+  "script_sha256": "d98ca95f16a7c3a8b720ff43cc9168cf0959db7957152ec07138e79537a02537",
+  "started_at": 1791737233.511269,
+  "scope": "Unchanged trusted gate. Only an actual completed8M non-refuted receipt counts as full depth.",
+  "publication_status": "staged only; no commit, push or PR",
+  "refutations": [],
+  "exit_code": 0,
+  "elapsed_seconds": 6036.149915933609,
+  "receipt": "/Users/vincent.russo/Projects/genesis/wt/qldpc-publish-20261009/research/candidates/publication-20261009/repaired-662-122-95-full-gate-20261011/receipts/662-122-95.json",
+  "distance_gate": {
+    "refuted": false,
+    "seed": 304320000,
+    "seeds": [
+      304320000
+    ],
+    "trials": 104440,
+    "budget_seconds": 240.0,
+    "deep": true,
+    "fast_trials": 2310000,
+    "fast_target": 8000000,
+    "fast_seconds": 5400.0,
+    "structural_trials": 0,
+    "fold_partitions": 12,
+    "fold_trials": 50000,
+    "short_circuited_by": null,
+    "methods": [
+      "orbit-fold",
+      "RIS#0",
+      "RIS-fast"
+    ],
+    "diff_class": "new",
+    "diff_reason": "no base counterpart"
+  },
+  "routing": {
+    "status": "eligible_under_current_checks",
+    "reasons": [
+      "advances the weight-9plus x unrestricted stabilizer board",
+      "literature novelty UNVERIFIED"
+    ]
+  },
+  "completed_eight_million_trials": false
+}

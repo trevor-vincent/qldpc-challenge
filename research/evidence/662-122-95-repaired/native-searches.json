@@ -1,0 +1,106 @@
+{
+  "candidate": "codes/662-122-95.json",
+  "native_source_sha256": "434919c1c2877a416ab871765129177ddfc53f8fb7ead9a5092686ff870e3cd3",
+  "records": [
+    {
+      "id": "inherited-parent-Y-100000",
+      "kind": "parent-Y",
+      "raw": "native/saved-parent-Y.json",
+      "raw_sha256": "5cd4250241ca2dbe05816ed5f9ea63de25cfeb1505676a4ffbc8b299fdedbbb6",
+      "F_sha256": "1c441788c39b1d33128cb8cd36df13c20804ce498f4b074c4d69265bbd503a10",
+      "Lf_sha256": "10ef8eb2d1a26e8892aaefc84bfd516b2cb099e25d02ccc80ebfc71f49859c2d",
+      "pauli_c": 0,
+      "role": "Inherited parent-Y search; weight is preserved by every selected pair."
+    },
+    {
+      "id": "smoke-X-10000",
+      "kind": "pure-X",
+      "raw": "native/pure-X-raw.json",
+      "raw_sha256": "af0f60cd4a8fed9e886e23f008ca44d916cbdbbf6016c97d98bae2441488ae08",
+      "F_sha256": "dde37dc3fdd00d93907a87e0d283961347a702546a8572a4a2a689bdafcca827",
+      "Lf_sha256": "9bf23f4c67bb5b04d5ffbbab8b9ca9f64c07dd28230af4766a4e291222efdae9",
+      "pauli_c": 554,
+      "role": "Fresh repaired-code search."
+    },
+    {
+      "id": "smoke-Z-10000",
+      "kind": "pure-Z",
+      "raw": "native/pure-Z-raw.json",
+      "raw_sha256": "924fe54a5928fd1108314d95f09c53424566811010e94bf12eaf4cc2eeb4cf27",
+      "F_sha256": "66346c31c7f302a2ab26045cd176cf94fd673ee8799c515c792060e8ecd9b167",
+      "Lf_sha256": "3c8270e287e3fd28d0f855028f5b677821d2cecb8248640f9da6e353affa632a",
+      "pauli_c": 554,
+      "role": "Fresh repaired-code search."
+    },
+    {
+      "id": "smoke-P-10000",
+      "kind": "full-Pauli",
+      "raw": "native/full-Pauli-raw.json",
+      "raw_sha256": "6ac34e5f9cd2db3afd82d8b8adfc7bc4439162eda666ebfa2a3af53df347ba0b",
+      "F_sha256": "f561143f7cec1d0db3c17348eb83e4d3741795be2d02debe5292252ceb031de1",
+      "Lf_sha256": "23f7b24b8a80559f6994e43be1c94ae6cbb24fa8c86f6151b94b507f352e36a5",
+      "pauli_c": 662,
+      "role": "Fresh repaired-code search."
+    },
+    {
+      "id": "targeted-0-pure-X",
+      "kind": "pure-X",
+      "raw": "native/00-X-10000-raw.json",
+      "raw_sha256": "acec051be18e53025bea593d6dd55cd8cc8f4c0f76284ed6c65d84da3e565376",
+      "F_sha256": "dde37dc3fdd00d93907a87e0d283961347a702546a8572a4a2a689bdafcca827",
+      "Lf_sha256": "9bf23f4c67bb5b04d5ffbbab8b9ca9f64c07dd28230af4766a4e291222efdae9",
+      "pauli_c": 554,
+      "role": "Fresh repaired-code search, saved before the requested chunk-boundary stop."
+    },
+    {
+      "id": "targeted-1-pure-Z",
+      "kind": "pure-Z",
+      "raw": "native/01-Z-10000-raw.json",
+      "raw_sha256": "694fc90722477ecbe7c059d33b86f5541b059c3e4310ef05c36a36646649c8b6",
+      "F_sha256": "66346c31c7f302a2ab26045cd176cf94fd673ee8799c515c792060e8ecd9b167",
+      "Lf_sha256": "3c8270e287e3fd28d0f855028f5b677821d2cecb8248640f9da6e353affa632a",
+      "pauli_c": 554,
+      "role": "Fresh repaired-code search, saved before the requested chunk-boundary stop."
+    },
+    {
+      "id": "targeted-2-parent-Y",
+      "kind": "parent-Y",
+      "raw": "native/02-Y-100000-raw.json",
+      "raw_sha256": "5828c4aec49382ba9029c95f8e3d305cc170085de07c7a8b19daa4f59a84726f",
+      "F_sha256": "1c441788c39b1d33128cb8cd36df13c20804ce498f4b074c4d69265bbd503a10",
+      "Lf_sha256": "10ef8eb2d1a26e8892aaefc84bfd516b2cb099e25d02ccc80ebfc71f49859c2d",
+      "pauli_c": 0,
+      "role": "Fresh repaired-code search, saved before the requested chunk-boundary stop."
+    },
+    {
+      "id": "targeted-3-pure-X",
+      "kind": "pure-X",
+      "raw": "native/03-X-100000-raw.json",
+      "raw_sha256": "08d7798561f11c930a98147f95a59a233324488c33158641d26b319e4df95245",
+      "F_sha256": "dde37dc3fdd00d93907a87e0d283961347a702546a8572a4a2a689bdafcca827",
+      "Lf_sha256": "9bf23f4c67bb5b04d5ffbbab8b9ca9f64c07dd28230af4766a4e291222efdae9",
+      "pauli_c": 554,
+      "role": "Fresh repaired-code search, saved before the requested chunk-boundary stop."
+    },
+    {
+      "id": "targeted-4-pure-Z",
+      "kind": "pure-Z",
+      "raw": "native/04-Z-100000-raw.json",
+      "raw_sha256": "1a7a77c11e0014250a477cc4cf2ee6398fcd3b4825934859482f5de904a69f24",
+      "F_sha256": "66346c31c7f302a2ab26045cd176cf94fd673ee8799c515c792060e8ecd9b167",
+      "Lf_sha256": "3c8270e287e3fd28d0f855028f5b677821d2cecb8248640f9da6e353affa632a",
+      "pauli_c": 554,
+      "role": "Fresh repaired-code search, saved before the requested chunk-boundary stop."
+    },
+    {
+      "id": "replay-smoke-X-10000",
+      "kind": "pure-X",
+      "raw": "native/replay-smoke-X-10000-raw.json",
+      "raw_sha256": "2fb9e7b635dce92aa3d37a5aa1557d51c8db5171888025d23933bd548ec7f779",
+      "F_sha256": "dde37dc3fdd00d93907a87e0d283961347a702546a8572a4a2a689bdafcca827",
+      "Lf_sha256": "9bf23f4c67bb5b04d5ffbbab8b9ca9f64c07dd28230af4766a4e291222efdae9",
+      "pauli_c": 554,
+      "role": "Exact repeat of smoke-X-10000; not additional independent search depth."
+    }
+  ]
+}

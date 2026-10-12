@@ -1,0 +1,5 @@
+{
+  "status": "wrapper_failed_after_saved_native_return",
+  "retained_raw": "../native/replay-smoke-X-10000-raw.json",
+  "diagnosis": "The research wrapper imported submit without adding research/kit to sys.path. No support was lost; replay returned weight111, above current95. The research wrapper now sets that import path. Trusted code was not changed."
+}
