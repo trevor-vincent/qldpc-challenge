@@ -1,0 +1,43 @@
+{
+  "m": 341,
+  "n": 682,
+  "k": 150,
+  "w": 31,
+  "a": [
+    0,
+    1,
+    13,
+    21,
+    39,
+    48,
+    114,
+    151,
+    154,
+    157,
+    175,
+    196,
+    214,
+    248,
+    284,
+    335
+  ],
+  "b": [
+    0,
+    1,
+    18,
+    23,
+    32,
+    54,
+    71,
+    77,
+    99,
+    132,
+    143,
+    226,
+    235,
+    297,
+    308
+  ],
+  "source_ideal": "0xf6be8b4be37290382c9",
+  "construction_method": "Shortened native kernel parity-check generation and Frobenius pairing; divisor ideal from Degree75 divisor 0xf6be8b4be37290382c9 of x^341+1, with seven primitive degree10 factors and one degree5 factor. Obtained by deleting the parity factor from a retained degree76 ideal. No inherited quantum distance. Sparse checks sampled outside proper ideal 0x11bc39ddc2597b04875b with the unchanged native observable test."
+}
